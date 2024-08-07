@@ -19,6 +19,7 @@ RUN \
                 unzip \
                 cpanminus \
                 make \
+                gosu \
                 && \
   rm -rf /var/lib/apt/lists/*
 
