@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.10
 
-MAINTAINER ngocpq <phungquangngoc@gmail.com>
+MAINTAINER andre15silva <andreans@kth.se>
 
 #############################################################################
 # Requirements
@@ -26,7 +26,7 @@ RUN \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Timezone
-ENV TZ=America/Los_Angeles
+ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
@@ -36,7 +36,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # ----------- Step 1. Clone defects4j from github --------------
 WORKDIR /
-RUN git clone https://github.com/rjust/defects4j.git defects4j
+RUN git clone https://github.com/ASSERT-KTH/defects4j.git defects4j
 
 # ----------- Step 2. Initialize Defects4J ---------------------
 WORKDIR /defects4j
