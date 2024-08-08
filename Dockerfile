@@ -5,7 +5,6 @@ MAINTAINER andre15silva <andreans@kth.se>
 #############################################################################
 # Requirements
 #############################################################################
-
 RUN \
   apt-get update -y && \
   apt-get install software-properties-common -y && \
@@ -20,6 +19,7 @@ RUN \
                 cpanminus \
                 make \
                 gosu \
+                locales \
                 && \
   rm -rf /var/lib/apt/lists/*
 
@@ -30,6 +30,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+# LOCALE
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 #############################################################################
 # Setup Defects4J
